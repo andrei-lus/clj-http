@@ -1,11 +1,11 @@
 (ns clj-http.util
   "Helper functions for the HTTP client."
   (:require [clojure.string :refer [blank? lower-case split trim]]
-            [clojure.walk :refer [postwalk]])
+            [clojure.walk :refer [postwalk]]
+            [base64-clj.core :as base64])
   (:import [java.io BufferedInputStream ByteArrayInputStream ByteArrayOutputStream EOFException InputStream PushbackInputStream]
            [java.net URLDecoder URLEncoder]
            [java.util.zip DeflaterInputStream GZIPInputStream GZIPOutputStream InflaterInputStream]
-           org.apache.commons.codec.binary.Base64
            org.apache.commons.io.IOUtils))
 
 (defn utf8-bytes
@@ -34,7 +34,7 @@
 (defn base64-encode
   "Encode an array of bytes into a base64 encoded string."
   [unencoded]
-  (utf8-string (Base64/encodeBase64 unencoded)))
+  (utf8-string (base64/encode unencoded)))
 
 (defn gunzip
   "Returns a gunzip'd version of the given byte array."
