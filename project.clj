@@ -15,7 +15,8 @@
                  [commons-codec "1.15"]
                  [commons-io "2.8.0"]
                  [slingshot "0.12.2"]
-                 [potemkin "0.4.5"]]
+                 [potemkin "0.4.5"]
+                 [base64-clj "0.1.1"]]
   :resource-paths ["resources"]
   :profiles {:dev {:dependencies [;; optional deps
                                   [cheshire "5.10.0"]
